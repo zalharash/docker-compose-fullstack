@@ -1,0 +1,20 @@
+version: '3'
+services:
+    # service name is app (front-end)
+    app:
+        container_name: docker-node-mongo
+        # if it fails we want it to panos_restart
+        restart: always
+        # build from current file that's located in current directory
+        build: .
+        ports:
+            - '80:3000'
+        links:
+            - mongo
+    # service name is mongo (backend)
+    mongo:
+        container_name: mongo
+        # we will pull the image from docker hub that names mongo
+        image: mongo
+        ports:
+            - '27017:27017'

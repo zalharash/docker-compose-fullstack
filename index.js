@@ -9,6 +9,7 @@ app.set('view engine', 'ejs')
 app.use(express.urlencoded({ extended: false }))
 
 // Connect to MongoDB
+// note service name in the url `mongo` instead of localhost as we are referring to the service name inside docker-compose
 mongoose
     .connect('mongodb://mongo:27017/docker-node-mongo', {
         useNewUrlParser: true,
